@@ -1,0 +1,169 @@
+<div class="container">
+
+  <div class="header">
+    <div class="nav-bar">
+
+      <div class="logo">Logo</div>
+
+      <ul #navLink class="nav-link">
+        <li class="link"><a href="#">Home</a></li>
+        <li class="link"><a href="#about">About</a></li>
+        <li class="link"><a href="#products">All Products</a></li>
+        <li class="link"><a href="#contact-us">Contact</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <div class="cart-icon" (click)="cartShow(cartEl)">
+          <fa-icon [icon]="icons.cartBag"></fa-icon>
+          <span #badge class="badge">{{cartItems.length}}</span>
+        </div>
+        <div class="nav-menu" (click)="navActive(navLink)">
+          <fa-icon [icon]="icons.menu"></fa-icon>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- -----------------------Home Page---------------------------------- -->
+
+  <div class="home-page">
+    <img src="assets/img/1003.jpg" alt="cover img" width="100%" height="100%">
+    <div class="home-content">
+      <h1>Bite into Happiness <br> Savor the Sweetness</h1>
+      <button><a href="#products">Get Started</a></button>
+    </div>
+  </div>
+  <!-- -----------------------About---------------------------------------- -->
+
+  <div id="about">
+    <h1>About Us</h1>
+    <div class="about-content">
+      <img src="assets/img/about-img.jpg" alt="about-images" width="600px" height="400px">
+      <p>The bakery was founded by Nambi Rajan, in Chennai in India back in 2024.  Has overseen its continued expansion into new markets and new product ranges.  But one thing we’ve never changed is our commitment to traditional methods for producing hand–crafted baked goods, and using the finest locally sourced ingredients.  However, traditional doesn’t mean old–fashioned. We’re innovative bakers, always experimenting with new flavours and combinations, new ways to bring you fresh, exciting and above all, tasty ideas.</p>
+    </div>
+  </div>
+
+  <!-- -----------------------Popular Products------------------------------------- -->
+
+  <div id="products">
+    <h1>Popular Products</h1>
+    <div class="product-box">
+
+      <div style="border-bottom-left-radius: 50px;border-top-right-radius: 50px;" class="item-card" *ngFor="let item of productsDetails">
+        <div style="border-top-right-radius: 50px;" class="item-img">
+          <img [src]="item.imgSrc" alt="Product-img" width="190px" height="200px">
+        </div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <h4 class="item-name">{{item.price | currency:'INR'}}</h4>
+        <div class="add-to-cart" (click)="addToCart(item, badge)">
+          <fa-icon [icon]="icons.addToCart"></fa-icon>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- -----------------------Special Offer-------------------------------------- -->
+
+  <div class="special-offer">
+    <h1>Special Offer</h1>
+    <h2>Get 50% Discount</h2>
+    <button>Shop Now</button>
+  </div>
+
+  <!-- -----------------------Popular Categories------------------------------------ -->
+
+  <div id="popular-categories">
+    <h1>Popular Categories</h1>
+    <div class="product-box">
+
+      <div style="border-top-left-radius: 100px;" class="item-card" *ngFor="let item of popular_categories">
+        <div class="item-img" style="border-top-left-radius: 100px;">
+          <img [src]="item.imgSrc" alt="Product-img" width="190px" height="200px">
+        </div>
+          <h4 class="item-name">{{item.name}}</h4>
+          <h4 class="item-name">{{item.price | currency:'INR'}}</h4>
+        <div class="add-to-cart" (click)="addToCart(item, badge)">
+          <fa-icon [icon]="icons.addToCart"></fa-icon>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- -----------------------Clients Feedback----------------------------------------- -->
+
+  <div class="clients-feedback">
+    <h1>What Our Clients Say</h1>
+    <div class="client">
+      <img [src]="clientEl.img" alt="client-img" width="360px" height="420px">
+      <div class="details">
+        <h2>{{clientEl.name}}</h2>
+        <p>"{{clientEl.feedback}}"</p>
+      </div>
+    </div>
+    <button class="client-btn1" [disabled]="disabledLeft" (click)="back()" style="right: 340px;"><fa-icon [icon]="icons.left"></fa-icon></button>
+    <button class="client-btn2" [disabled]="disabledRight" (click)="next()" style="right: 300px;"><fa-icon [icon]="icons.right"></fa-icon></button>
+  </div>
+
+  <!-- -----------------------Subscribe----------------------------------- -->
+
+  <div class="subscribe-div">
+    <img src="assets/img/nh.jpg" alt="image" width="500px" height="250px">
+    <div class="sub-details">
+      <h2>Subscribe To Our Newsletter!</h2>
+      <p>Subscribe to the newsletter and become part of the Glutenfrihuset group that receives excluseve discount codes, offers and special surprises before everyone else.  Stay updated.</p>
+      <div class="email">
+        <input type="email" placeholder="Email Address" required>
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- -----------------------Contact us-------------------------------------- -->
+
+  <div id="contact-us">
+    <div class="logo">Logo</div>
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p><fa-icon class="icon" [icon]="icons.phone"></fa-icon> +91 1234567890</p>
+      <p><fa-icon class="icon" [icon]="icons.email"></fa-icon> example10&#64;gmail.com</p>
+      <p><fa-icon class="icon" [icon]="icons.location"></fa-icon> 10, Ben Street, <br>  Koyambedu, Chennai - 600 106.</p>
+    </div>
+    <div class="social-icon">
+      <fa-icon class="icon" [icon]="icons.Brands.facebook"></fa-icon>
+      <fa-icon class="icon" [icon]="icons.Brands.twitter"></fa-icon>
+      <fa-icon class="icon" [icon]="icons.Brands.instagram"></fa-icon>
+      <fa-icon class="icon" [icon]="icons.Brands.linkedin"></fa-icon>
+    </div>
+  </div>
+
+  <!-- -----------------------Cart----------------------------------- -->
+
+  <div class="cart-div" #cartEl>
+    <h2>  Cart Items 
+      <fa-icon (click)="cartHide(cartEl)" class="cart-cancel" [icon]="icons.cancel"></fa-icon>
+    </h2>
+    <ul class="cart-list" #cartListEl>
+      <li class="list" *ngFor="let i of cartItems; let cartIndex=index;">
+        <div class="cart-pic">
+          <img [src]="i.imgSrc" alt="cart-image" width="100%" height="100%">
+        </div>
+        <div class="cart-details">
+          <h4>{{i.name}}</h4>
+          <p>{{i.price | currency:"INR"}}</p>
+          <input type="number" min="1" max="10" value="1" #quantity (change)="quantityChange(cartIndex, quantity)" (input)="quantityInput(quantity)">
+        </div>
+        <div #trashEl (click)="removeItem(trashEl, cartListEl, i, badge)">
+          <fa-icon class="cart-trash" [icon]="icons.trash"></fa-icon>
+        </div>
+      </li>
+    </ul>
+    <div class="cart-tot-order">
+      <h2 class="cart-total">Total: {{total | currency:"INR"}} </h2>
+      <button (click)="orderNow(badge)">Order Now</button>
+    </div>
+  </div>
+  
+</div>
