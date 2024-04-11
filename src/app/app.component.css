@@ -241,7 +241,7 @@
     margin: 40px auto;
     padding-left: 25px;
     border-radius: 15px;
-    background-image: url("/assets/img/specialoffer.jpg");
+    background-image: url("./assets/img/specialoffer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
