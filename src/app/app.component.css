@@ -108,6 +108,7 @@
     font-weight: 400;
     letter-spacing: 1px;
     color: white;
+    opacity: 0.9;
 }
 
 .home-content button {
@@ -536,6 +537,10 @@
     }
 
 
+    .client img {
+        width: 330px;
+        height: 390px;
+    }
     .clients-feedback .client-btn1 {
         left: 45%;
         bottom: -5px;
@@ -575,5 +580,14 @@
     }
     .cart-list .list {
         gap: 10px;
+    }
+
+
+    .item-card {
+        width: 270px;
+        height: 290px;
+    }
+    .item-card .item-img {
+        height: 210px;
     }
 }
